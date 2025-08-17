@@ -1,0 +1,18 @@
+public class Solution {
+    public bool IsPalindrome(int x) {
+        int[] digits = x.ToString().Select(p => p - '0').ToArray();
+
+int[] rev = digits.Reverse().ToArray();
+
+bool isPalindrome = digits.SequenceEqual(rev);
+
+if (isPalindrome)
+{
+    return true;
+}
+else
+{
+    return false;
+}
+    }
+}
