@@ -1,0 +1,89 @@
+using System.Globalization;
+using System.Linq.Expressions;
+
+public class Solution
+{
+    public static int[] TwoSum(int[] nums, int target)
+    {
+        var map = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int need = target - nums[i];
+
+            if (map.TryGetValue(need, out int j))
+            {
+                return new int[] { j, i };
+            }
+
+            if (!map.ContainsKey(nums[i]))
+            {
+                map[nums[i]] = i;
+            }
+        }
+
+        return System.Array.Empty<int>();
+    }
+
+    public static int Training(int[] num, int key)
+    {
+        if (num == null) throw new ArgumentNullException(nameof(num));
+
+        for (int i = 0; i < num.Length; i++)
+        {
+            if (num[i] == key) return i;
+
+        }
+
+        Console.WriteLine("Girdiğiniz numara listede yok");
+        throw new KeyNotFoundException($"Değer bulunamadı: {key}");
+
+
+    }
+
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Kaç elemanlı bir dizi oluşturacaksınız: ");
+
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        int[] test = new int[n];
+
+        for (int i = 0;i < n; i++)
+        {
+            Console.Write("Lütfen bir değer giriniz: ");
+
+            test[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Console.WriteLine("Lütfen dizide aramak istediğiniz sayıyı giriniz");
+
+        int hedef = Convert.ToInt32(Console.ReadLine());
+
+      //  var result = TwoSum(test, hedef);
+
+       // Console.WriteLine("Sonuç indeksleri: {0}, {1}", result[0], result[1]);
+
+
+        try
+        {
+
+            int idx = Training(test, hedef);
+
+            Console.WriteLine("Bulunan indeks: {0}", idx);
+
+        }
+
+       
+        catch (KeyNotFoundException)
+        {
+
+
+        }
+
+
+
+
+    }
+}
