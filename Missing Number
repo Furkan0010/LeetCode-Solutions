@@ -1,0 +1,12 @@
+public class Solution {
+   public int MissingNumber(int[] nums)
+{
+    long Toplam = nums.Length * (nums.Length + 1) / 2;
+    long elimizdekitoplam = 0;
+    foreach (int x in nums)
+    {
+        elimizdekitoplam += x;
+    }
+    return (int)(Toplam - elimizdekitoplam);
+}
+}
