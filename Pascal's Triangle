@@ -1,0 +1,20 @@
+public class Solution {
+    public IList<IList<int>> Generate(int numRows) {
+        var result = new List<IList<int>>();
+
+        for(int i = 0; i < numRows;i++){
+             List<int> altListe = new List<int>();
+             altListe.Add(1);
+             if(i > 0){
+                var prevAltList = result[i-1];
+                for(int j = 1; j < i;j++){
+                    altListe.Add(prevAltList[j-1] + prevAltList[j]);
+                }
+                altListe.Add(1);
+             }
+             result.Add(altListe);
+        }
+        return result;
+        
+    }
+}
