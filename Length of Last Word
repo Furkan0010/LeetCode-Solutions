@@ -1,0 +1,34 @@
+public class Solution{
+
+
+public int LengthOfLastWord(string s)
+{
+
+    List<char> harfler = s.TrimEnd().ToList();
+
+    int counter = 0;
+
+    for (int i = 0; i < harfler.Count; i++)
+    {
+        if (harfler[i] == ' ')
+        {
+           
+            counter = 0;
+        }
+        else
+        {
+            
+            counter++;
+        }
+    }
+
+    return counter;
+} 
+}
+
+//gpt çözümü 
+
+public class Solution {
+    public int LengthOfLastWord(string s) =>
+        s.TrimEnd().Split(' ')[^1].Length;
+}
