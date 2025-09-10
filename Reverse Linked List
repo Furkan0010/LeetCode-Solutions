@@ -1,0 +1,43 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        ListNode newHead = null;
+
+        while(head != null){
+            ListNode node = new ListNode(head.val);
+            node.next = newHead;
+            newHead = node;
+            head = head.next;
+        }
+        return newHead;
+    }
+}
+
+
+//gpt çözümü 
+
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next; // sonraki node’u sakla
+            curr.next = prev;          // yönü ters çevir
+            prev = curr;               // prev’i ilerlet
+            curr = next;               // curr’u ilerlet
+        }
+
+        return prev; // yeni head
+    }
+}
