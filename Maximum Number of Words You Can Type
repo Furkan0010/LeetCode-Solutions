@@ -1,0 +1,11 @@
+public class Solution {
+    public int CanBeTypedWords(string text, string brokenLetters) {
+         List<string> kelimeler = text.Split(' ').ToList();
+ 
+ char[] harfler = brokenLetters.ToCharArray();
+
+ kelimeler.RemoveAll(kelime => harfler.Any(h => kelime.Contains(h)));
+
+ return kelimeler.Count; 
+    }
+}
